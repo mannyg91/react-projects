@@ -1,9 +1,9 @@
 import React from "react"
 
 function Navbar() {
-    return (<nav>
+    return (
         <h1>Navbar goes here</h1>
-    </nav>)
+    )
 }
 
 export default Navbar;
