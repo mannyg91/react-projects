@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
     box-sizing: border-box;
@@ -9,33 +10,113 @@ body {
 }
 
 main {
-    margin: 50px;
+    margin: 80px 15%;
     color: #293264;
-    
+    font-family: 'Karla';
 }
+
+button {
+    font-family: 'Inter';
+    background: #4D5B9E;
+    color: white;
+    border: none;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.start-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #293264;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 50px;
+}
+
+.start-container button {
+    border-radius: 15px;
+    height: 60px;
+    width: 210px;
+    font-size: 18px;
+}
+
+.start-container p {
+    font-size: 20px;
+    text-align: center;
+}
+
+
+
 
 .question-container {
     display: flex;
     flex-direction: column;
-    margin: 20px 0px;
+    justify-content: center;
     border-bottom: 1px solid #DBDEF0;
-    padding: 20px 0px;
+    padding: 32px 0px;
+    width: 850px;
 }
+
 
 .question {
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
+    margin-bottom: 6px;
 }
 
 .answer {
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 10px;
     background: #F5F7FB;
     color: #293264;
     border: 1px solid #4D5B9E;
     opacity: 0.5;
     font-weight: 600;
-    margin: 12px 7px;
+    margin-top: 10px;
+    margin-right: 14px;
     font-size: 14px;
+}
+
+.check-answers {
+    display: flex;
+    justify-content: center;
+    padding: 32px;
+}
+
+.check-answers button {
+    border-radius: 12px;
+    height: 52px;
+    width: 180px;
+    font-size: 15px;
+}
+
+.blob-1{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    right: 120px;
+    z-index: -1;
+    background: #FFFAD1;
+    transform: rotate(-158.49deg);
+    overflow: hidden;
+}
+
+.blob-2{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    bottom: 100px;
+    z-index: -1;
+    background: #DEEBF8;
+    transform: rotate(-58.49deg);
+    overflow: clip;
 }
