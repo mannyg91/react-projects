@@ -1,7 +1,13 @@
+
 import React from 'react'
+import Answer from './Answer.js'
 
 export default function Question(props) {
-    const { question, incorrectAnswers, correctAnswer } = props;
+    const { question, incorrectAnswers, correctAnswer, quizEnded } = props;
+
+    const [allAnswers, setAllAnswers] = React.useState([])
+    const [selectedAnswer, setSelectedAnswer] = React.useState("")
+    // const [userCorrect, setUserCorrect] = React.useState(false)
 
     function shuffleAnswers() {
         const numAnswers = incorrectAnswers.length + 1
@@ -9,10 +15,18 @@ export default function Question(props) {
         return incorrectAnswers.slice(0,insertPosition).concat(correctAnswer,incorrectAnswers.slice(insertPosition))
     }
 
-    const allAnswers = shuffleAnswers()
+    React.useEffect(() => {
+        setAllAnswers(shuffleAnswers())
+    }, [])
+    // const allAnswers = shuffleAnswers()
+
+
+
 
     const answerElements = allAnswers.map((answer)=>{
-        return (<button className="answer">{answer}</button>)
+        return(<Answer content={answer} correct={answer === correctAnswer ? true : false } setSelectedAnswer={setSelectedAnswer} />)
+
+        // return (<button style={styles} className="answer" onClick={clickAnswer}>{answer}</button>)
     })
 
 

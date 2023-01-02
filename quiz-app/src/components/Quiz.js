@@ -6,7 +6,7 @@ export default function Quiz() {
     //does this need to be a state?
     const [questions, setQuestions] = React.useState([])
     const [quizEnded, setQuizEnded] = React.useState(true)
-    const [userAnswers, setUserAnswers] = React.useState([])
+  
 
 
     //ran per each question, should only run once
@@ -41,6 +41,7 @@ export default function Quiz() {
             incorrectAnswers={item.incorrect_answers}
             correctAnswer={item.correct_answer}
             handleClick={selectQuestion}
+            quizEnded = {quizEnded}
         />
 
     ))
