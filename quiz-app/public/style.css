@@ -79,7 +79,7 @@ h1 {
     background: #F5F7FB;
     color: #293264;
     border: 1px solid #4D5B9E;
-    opacity: 0.5;
+    /* opacity: 0.5; */
     font-weight: 600;
     margin-top: 10px;
     margin-right: 14px;
