@@ -5,7 +5,7 @@ export default function Quiz() {
 
     //does this need to be a state?
     const [questions, setQuestions] = React.useState([])
-    const [quizEnded, setQuizEnded] = React.useState(true)
+    const [quizEnded, setQuizEnded] = React.useState(false)
     const [questionCorrect, setQuestionCorrect] = React.useState(false)
 
 
@@ -24,10 +24,11 @@ export default function Quiz() {
     const checkAnswersHTML = (
             <div className="check-answers">
                 {quizEnded ? 
-                <div className="results">You scored {3}/{5} correct answers
-                    <button>Play again</button>
-                </div>
-                : <button>Check Answers</button> }
+                    <div className="results">You scored {3}/{5} correct answers
+                        <button>Play again</button>
+                    </div>
+                    : <button onClick={() => setQuizEnded(true)}>Check Answers</button>
+                }
             </div>
         )
     

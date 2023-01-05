@@ -7,20 +7,10 @@ export default function Question(props) {
     const [allAnswers, setAllAnswers] = React.useState([]) //used to shuffle answers
     
 
-
     const [selectedAnswer, setSelectedAnswer] = React.useState(null) //used to send up answer, may not need
 
 
 
-
-    //set state or prop here, pass to the question component, when clicked, the state will be changed
-
-
-
-
-    // const [answerData,setAnswerData] = React.useState({
-    //     isSelected : false
-    // })
 
 
     function shuffleAnswers() {
@@ -29,24 +19,20 @@ export default function Question(props) {
         return incorrectAnswers.slice(0,insertPosition).concat(correctAnswer,incorrectAnswers.slice(insertPosition))
     }
 
+
     React.useEffect(() => {
         setAllAnswers(shuffleAnswers())
     }, [])
-    // const allAnswers = shuffleAnswers()
 
 
-
-
-    //how do I send 
     const answerElements = allAnswers.map((answer)=>{
         return(<Answer 
             answer={answer}
             correct={answer === correctAnswer ? true : false }
             selected={selectedAnswer === answer} //checks if the current answer equals selected answer
             onSelect={setSelectedAnswer} 
+            quizEnded = {quizEnded}
             />)
-
-        // return (<button style={styles} className="answer" onClick={clickAnswer}>{answer}</button>)
     })
 
 
