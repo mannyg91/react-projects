@@ -7,7 +7,7 @@ import Start from './components/Start.js'
 
 function App() {
 
-  const [start, setStart] = React.useState(true) //set to false when done
+  const [start, setStart] = React.useState(false) //set to false when done
 
   function startQuiz() {
     console.log("started")

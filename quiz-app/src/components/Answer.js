@@ -4,7 +4,7 @@ export default function Answer(props) {
 
     let style ={}
 
-    const { answer, correct, selected, onSelect, quizEnded } = props;
+    const { answer, correct, selected, onSelect, quizEnded, correctCount, setCorrectCount } = props;
 
 
     function handleClick() {
@@ -42,6 +42,7 @@ export default function Answer(props) {
                 color: '#293264',
                 border: 'none'
             }
+            setCorrectCount(correctCount + 1)
         }
     }
 

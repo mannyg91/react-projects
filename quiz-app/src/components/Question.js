@@ -2,11 +2,10 @@ import React from 'react'
 import Answer from './Answer.js'
 
 export default function Question(props) {
-    const { question, incorrectAnswers, correctAnswer, quizEnded } = props;
+    const { question, incorrectAnswers, correctAnswer, quizEnded, correctCount, setCorrectCount } = props;
 
     const [allAnswers, setAllAnswers] = React.useState([]) //used to shuffle answers
     
-
     const [selectedAnswer, setSelectedAnswer] = React.useState(null) //used to send up answer, may not need
 
 
@@ -32,6 +31,8 @@ export default function Question(props) {
             selected={selectedAnswer === answer} //checks if the current answer equals selected answer
             onSelect={setSelectedAnswer} 
             quizEnded = {quizEnded}
+            correctCount={correctCount}
+            setCorrectCount={setCorrectCount}
             />)
     })
 
