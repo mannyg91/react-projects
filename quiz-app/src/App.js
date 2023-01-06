@@ -3,8 +3,6 @@ import Quiz from './components/Quiz.js'
 import Start from './components/Start.js'
 
 
-
-
 function App() {
 
   const [start, setStart] = React.useState(false) //set to false when done

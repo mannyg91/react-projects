@@ -6,14 +6,9 @@ export default function Answer(props) {
 
     const { answer, correct, selected, onSelect, quizEnded, correctCount, setCorrectCount } = props;
 
-
     function handleClick() {
         onSelect(answer)
-        console.log(correct)
     }
-
-
-
 
     if (!quizEnded) {
         if (selected) {
@@ -42,13 +37,10 @@ export default function Answer(props) {
                 color: '#293264',
                 border: 'none'
             }
-            setCorrectCount(correctCount + 1)
+  
+            setCorrectCount(correctCount + 1) // causes a loop, needs to be reworked
         }
     }
-
-    
-
-
 
 
     return (<button style={style} className="answer" onClick={handleClick}>{answer}</button>)

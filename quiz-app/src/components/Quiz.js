@@ -5,10 +5,13 @@ export default function Quiz() {
 
     //does this need to be a state?
     const [questions, setQuestions] = React.useState([])
-    const [quizEnded, setQuizEnded] = React.useState(false) //can probably turn this into an object that also records the total number of answers
+    const [quizEnded, setQuizEnded] = React.useState(false) // can probably turn this into an object that also records the total number of answers
     const [correctCount, setCorrectCount] = React.useState(0)
 
-    const numberOfQuestions = 5
+
+
+
+    const numberOfQuestions = 15;
     //ran per each question, should only run once
     React.useEffect(() => {
         async function getQuestions() {
@@ -20,7 +23,6 @@ export default function Quiz() {
         getQuestions()
     }, [])
 
-
     const checkAnswersHTML = (
             <div className="check-answers">
                 {quizEnded ? 
@@ -31,7 +33,6 @@ export default function Quiz() {
                 }
             </div>
         )
-    
 
     const questionElements = questions.map(item => (
         <Question className="question"
