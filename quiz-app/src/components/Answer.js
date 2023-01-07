@@ -4,11 +4,18 @@ export default function Answer(props) {
 
     let style ={}
 
-    const { answer, correct, selected, onSelect, quizEnded, correctCount, setCorrectCount } = props;
+    const { answer, correct, selected, onSelect, quizEnded, setCorrectCount } = props;
 
     function handleClick() {
         onSelect(answer)
     }
+
+    React.useEffect(function() {
+        if (selected && correct) 
+            setCorrectCount(prevCount => prevCount + 1) // causes a loop, needs to be reworked
+    }, [quizEnded])
+
+
 
     if (!quizEnded) {
         if (selected) {
@@ -38,7 +45,7 @@ export default function Answer(props) {
                 border: 'none'
             }
   
-            setCorrectCount(correctCount + 1) // causes a loop, needs to be reworked
+
         }
     }
 
