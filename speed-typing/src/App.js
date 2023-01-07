@@ -5,6 +5,7 @@ function App() {
     const [text, setText] = React.useState("")
     const [timeRemaining, setTimeRemaining] = React.useState(5)
     const [isTimeRunning, setIsTimeRunning] = React.useState(false)
+    const [wordCount, setWordCount] = React.useState(0)
 
     React.useEffect(() => {
         if (isTimeRunning && timeRemaining > 0) {        
@@ -13,10 +14,11 @@ function App() {
             }, 1000)
         } else if (timeRemaining === 0) {
             setIsTimeRunning(false)
+            setWordCount(calculateWordCount(text))
         }
     }, [timeRemaining, isTimeRunning])
 
-    const wordCount = timeRemaining === 0 ? calculateWordCount(text) : 0;
+    // const wordCount = timeRemaining === 0 ? calculateWordCount(text) : 0;
 
     function handleChange(e) {
         const {value} = e.target
