@@ -2,8 +2,6 @@ import React from 'react';
 
 function App() {
 
-
-
     const [text, setText] = React.useState("")
     const [timeRemaining, setTimeRemaining] = React.useState(5)
     const [isTimeRunning, setIsTimeRunning] = React.useState(false)
@@ -13,23 +11,26 @@ function App() {
             setTimeout(() => {
                 setTimeRemaining(time => time - 1)
             }, 1000)
+        } else if (timeRemaining === 0) {
+            setIsTimeRunning(false)
         }
     }, [timeRemaining, isTimeRunning])
+
+    const wordCount = timeRemaining === 0 ? calculateWordCount(text) : 0;
 
     function handleChange(e) {
         const {value} = e.target
         setText(value)
-        console.log(text)
     }
 
     function calculateWordCount(text) {
         const wordsArr = text.trim().split(' ')
         const filteredWords = wordsArr.filter(word => word !== "") // solves problem of blank textarea being counted as 1 word
         const wordCount = filteredWords.length
-        console.log(wordCount)
         return wordCount
     }
 
+            
 
     return (
         <main>
@@ -40,7 +41,7 @@ function App() {
             />
             <h4>Time remaining: {timeRemaining}</h4>
             <button onClick={() => setIsTimeRunning(true)}>Start</button>
-            <h1>Word count: ???</h1>
+            <h1>Word count: {wordCount}</h1>
         </main>
 
     );
