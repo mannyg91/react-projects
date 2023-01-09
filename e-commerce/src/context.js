@@ -1,13 +1,18 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 
 const Context = React.createContext() 
 
 function ContextProvider(props) {
-    const [photos, setPhotos] = useState([])
+    const [allPhotos, setAllPhotos] = useState([])
 
+    useEffect(function() {
+        fetch("https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json")
+            .then(res => res.json())
+            .then(data => setAllPhotos(data))
+    }, [])
 
     return (
-        <Context.Provider value={photos}>
+        <Context.Provider value={{allPhotos}}>
             {props.children}
         </Context.Provider>
     )
