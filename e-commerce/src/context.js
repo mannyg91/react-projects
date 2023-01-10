@@ -32,7 +32,7 @@ function ContextProvider(props) {
     } 
     
     return (
-        <Context.Provider value={{allPhotos, toggleFavorite,  cartItems, addToCart, removeFromCart}}>
+        <Context.Provider value={{allPhotos, toggleFavorite,  cartItems, addToCart, removeFromCart, setCartItems}}>
             {props.children}
         </Context.Provider>
     )
