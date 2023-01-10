@@ -6,6 +6,7 @@ import {Context} from "../Context"
 
 function Photos() {
 
+    //gets the array that was passed as a value in the context provider
     const {allPhotos} = useContext(Context)
 
     //.map has an index property that can be accessed
@@ -18,7 +19,6 @@ function Photos() {
 
     return (
         <main className="photos">
-            <h1>Images go here</h1>
             {photoElements}
         </main>
     )
