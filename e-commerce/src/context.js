@@ -12,8 +12,8 @@ function ContextProvider(props) {
             .then(data => setAllPhotos(data))
     }, [])
 
-    function addToCart(img) {
-        console.log(img)
+    function addToCart(newImage) {
+        setCartItems(prevImages => [...prevImages, newImage])
     }
 
     function toggleFavorite(id) {
@@ -29,7 +29,7 @@ function ContextProvider(props) {
     } 
     
     return (
-        <Context.Provider value={{allPhotos, toggleFavorite, addToCart}}>
+        <Context.Provider value={{allPhotos, toggleFavorite, addToCart, cartItems}}>
             {props.children}
         </Context.Provider>
     )
