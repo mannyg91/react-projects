@@ -5,9 +5,9 @@ import {Context} from "../Context"
 // destructured from props immediatley
 function Image({className, img}) {
     const [hovered, setHovered] = useState(false)
-    const {toggleFavorite} = useContext(Context) //must always have some form of this if using a context
+    const {toggleFavorite, addToCart} = useContext(Context) //must always have some form of this if using a context
 
-    const cartIcon = hovered && <i className="ri-add-circle-line cart" onClick={() => toggleFavorite(img.id)}></i>
+    const cartIcon = hovered && <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}></i>
 
     function heartIcon() {
         if (img.isFavorite) {
