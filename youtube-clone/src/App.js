@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material'; // "nothing more than a simple div element"
 
+//better way to import components. Put them all in one index.js file in /components
+import { Navbar, Feed, VideoDetail, ChannelDetail, SearchFeed } from './components';
+
 const app = () => (
     <BrowserRouter>
         <Box sx={{ backgroundColor: '#000' }}>
