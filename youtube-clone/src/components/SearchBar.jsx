@@ -7,12 +7,17 @@ const SearchBar = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
     //if something has been typed in
-    if(searchTerms) {
+    if(searchTerm) {
+        //will redirect to this specific url
+        navigate(`/search/${searchTerm}`);
 
+        setSearchTerm('');
     }
   }
 
